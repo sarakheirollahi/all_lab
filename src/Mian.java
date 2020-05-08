@@ -1,8 +1,12 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
 
-    public class Mian {
+public class
+Mian {
 
-        public static void main(String[] arg){
+        public static void main(String[] arg) throws IOException {
 
             try
             {
@@ -16,18 +20,14 @@ import javax.swing.*;
             } catch (Exception e) {     /* If Nimbus is not available, you can set the GUI to another look and feel. }*/ }
 
             CalculatorGUI mycalculator = new CalculatorGUI();
-
             mycalculator.pannel();
-            mycalculator.textAndScroll();
+
             mycalculator.button();
             mycalculator.pane();
+            mycalculator.initMenuBar();
+
+
             //Menu myMenu = new Menu();
 
-
-
-
         }
-
-
-
-    }
+      }
