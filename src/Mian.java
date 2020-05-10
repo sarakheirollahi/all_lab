@@ -21,7 +21,6 @@ Mian {
 
             CalculatorGUI mycalculator = new CalculatorGUI();
             mycalculator.pannel();
-
             mycalculator.button();
             mycalculator.pane();
             mycalculator.initMenuBar();

@@ -18,7 +18,7 @@ import java.awt.event.KeyListener;
 import java.io.*;
 import java.util.Scanner;
 
-public class CalculatorGUI implements ActionListener {
+public class CalculatorGUI extends JFrame implements ActionListener,KeyListener{
     JFrame calcFrame;
     JPanel panel1;
     JPanel panel2;
@@ -147,25 +147,34 @@ public class CalculatorGUI implements ActionListener {
         calcFrame.add(panel2,BorderLayout.NORTH);
         calcFrame.add(panel3,BorderLayout.CENTER);
         calcFrame.add(panel4,BorderLayout.NORTH);
-        panel1.setFocusable(false);
+        panel1.setFocusable(true);
         panel1.requestFocusInWindow();
-        panel2.setFocusable(false);
+        panel2.setFocusable(true);
         panel2.requestFocusInWindow();
         panel3.setFocusable(false);
         panel3.requestFocusInWindow();
         panel4.setFocusable(false);
         panel4.requestFocusInWindow();
-       display.setFocusable(true);
+       display.setFocusable(false);
        display.requestFocusInWindow();
+        display1.setFocusable(false);
+        display1.requestFocusInWindow();
     }
 
+
+
     public void button(){
+
 
         //display.setEditable(true);
         display.setFont(new Font("Arial",14,14));
         JScrollPane scrollPane = new JScrollPane(display);
         scrollPane.setPreferredSize(new Dimension(100,50));
         scrollPane.setLocation(50,10);
+        display.addKeyListener(this);
+        panel1.addKeyListener(this);
+        panel2.addKeyListener(this);
+
 
         //display1.setEditable(true);
         display1.setFont(new Font("Arial",14,14));
@@ -203,11 +212,21 @@ public class CalculatorGUI implements ActionListener {
 
                 display.append("9");
             }  });
+        btn1.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
+
 
         btn2.setText("8");
         panel1.add(btn2);
         btn2.addActionListener(new ActionListener(){
+
             public void actionPerformed(ActionEvent e){
+
                 dop=false;
                 if (!op){
                     if(dot){
@@ -227,6 +246,13 @@ public class CalculatorGUI implements ActionListener {
                 }
                 display.append("8");
             }  });
+        btn2.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
 
         btn3.setText("7");
         panel1.add(btn3);
@@ -464,6 +490,7 @@ public class CalculatorGUI implements ActionListener {
         panel1.add(btn11);
         btn11.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+
                 dop=false;
                 display.append("1");
                 if (!op){
@@ -834,10 +861,82 @@ public class CalculatorGUI implements ActionListener {
 
         btn43.setText("shPI/E");
         panel3.add(btn43);
-
-
-
-
+        btn3.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
+        btn4.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
+        btn5.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
+        btn6.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
+        btn7.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
+        btn8.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });   btn2.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
+        btn9.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
+        btn10.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
+        btn11.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
+        btn12.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mousePressed(java.awt.event.MouseEvent evt)
+            {
+                System.out.println("button pressed by mouse");
+            }
+        });
 
     }
 
@@ -854,7 +953,7 @@ public class CalculatorGUI implements ActionListener {
     @Override
 
     public void actionPerformed(ActionEvent e) {
-
+        System.out.println("fhgf");
         if (e.getSource() == copyItem) {
             //mainPanel.addNewTab();
         } else if (e.getSource() == saveItem) {
@@ -908,48 +1007,58 @@ public class CalculatorGUI implements ActionListener {
 
                 }*/
 
-    public void KeyPressed(KeyEvent e){
 
-        int key =e.getKeyCode();
-        if (key == KeyEvent.VK_1){
+    @Override
+    public void keyTyped(KeyEvent e) {
 
-
-        }
-        if (key == KeyEvent.VK_2){
-            display.append("2");
-        }
-        if (key == KeyEvent.VK_3){
-            display.append("3");
-        }
-        if (key == KeyEvent.VK_4){
-            display.append("4");
-        }   if (key == KeyEvent.VK_5){
-            display.append("5");
-        }   if (key == KeyEvent.VK_6){
-            display.append("6");
-        }
-        if (key == KeyEvent.VK_7){
-            display.append("7");
-        }
-        if (key == KeyEvent.VK_9){
-            display.append("9");
-        }if (key == KeyEvent.VK_0){
-            display.append("0");
-        }if (key == KeyEvent.VK_ADD){
-            display.append("+");
-        }if (key == KeyEvent.VK_EQUALS){
-            display.append("=");
-        }if (key == KeyEvent.VK_MULTIPLY){
-            display.append("x");
-        }if (key == KeyEvent.VK_MINUS){
-            display.append("-");
-        }if (key == KeyEvent.VK_DIVIDE) {
-            display.append("/");
-        }
 
     }
-    public void KeyReleased(KeyEvent e)
-    {}
-    public void KeyTyped(KeyEvent e){}
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        char key =e.getKeyChar();
+        if (key == '1'){
+            btn11.doClick(); }
+        if (key == '2'){
+            btn10.doClick(); }
+        if (key =='3'){
+            btn9.doClick(); }
+        if (key == '4'){
+            btn7.doClick(); }
+        if (key == '5'){
+            btn6.doClick(); }
+        if (key == '6'){
+            btn5.doClick(); }
+        if (key == '7'){
+            btn3.doClick(); }
+        if (key == '8'){
+            btn2.doClick(); }
+        if (key == '9'){
+            btn1.doClick(); }
+        if (key == '0'){
+            btn13.doClick(); }
+        if (key =='+'){
+            btn4.doClick(); }
+        if (key == '='){
+            btn15.doClick(); }
+        if (key =='*'){
+            btn16.doClick(); }
+        if (key == '-'){
+            btn8.doClick(); }
+        if (key == '/') {
+            btn12.doClick(); }
+        if (key =='c'){
+            btn17.doClick(); }
+        if (key =='.'){
+            btn14.doClick(); }
+
+    }
+
+
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
 
